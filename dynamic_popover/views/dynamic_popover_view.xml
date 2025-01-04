@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+      <record id="popup_configuration_tree" model="ir.ui.view">
+          <field name="name">dynamic.popover.view.tree</field>
+          <field name="model">dynamic.popup</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name" />
+                  <field name="image" widget="image" class="product-image" />
+                  <field name="image_size" />
+                  <field name="user_id" optional="hide" />
+                  <field name="sequence" />
+                  <field name="active" widget="boolean_toggle"/>
+              </tree>
+          </field>
+      </record>
+      <record id="popup_configuration_form" model="ir.ui.view">
+          <field name="name">popup.configuration.view.form</field>
+          <field name="model">dynamic.popup</field>
+          <field name="arch" type="xml">
+             <form>
+                 <sheet>
+                     <h2>
+                         <field name="name" nolabel="1" placeholder="Description..." />
+                     </h2>
+                     <group>
+                         <group>
+                             <label for="date_from" string="Date Range" />
+                             <div class="o_row">
+                                 <field
+                                name="date_from"
+                                widget="daterange"
+                                required="not date_from or not date_to"
+                                options="{'end_date_field': 'date_to'}"/>
+                                <field name="date_to" invisible="1" />
+                             </div>
+                             <field name="user_id" />
+                             <field name="active" widget="boolean_toggle"/>
+                         </group>
+                         <group>
+                             <field name="image" widget='image' class="oe_avatar" options='{"zoom": true}' required="1"/>
+                             <field name="image_size" required="1"/>
+                             <field name="sequence" />
+                         </group>
+                     </group>
+                 </sheet>
+                 <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+             </form>
+          </field>
+      </record>
+
+    <record id="popup_configuration_action" model="ir.actions.act_window">
+        <field name="name">Popup Configuration</field>
+        <field name="res_model">dynamic.popup</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_dynamic_popup" name="Dynamic Popover" action="popup_configuration_action" parent="website.menu_website_global_configuration" sequence="49"/>
+</odoo>

@@ -1,0 +1,5 @@
+.product-image img{
+    width:  40px !important;
+    height: 35px !important;
+    max-width: unset !important;
+}

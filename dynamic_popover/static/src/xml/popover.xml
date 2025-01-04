@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="dynamic_popover.DynamicPopOver">
+       <div role="dialog" class="modal d-block o_technical_modal" tabindex="-1" >
+            <div class="modal-dialog modal-dialog-centered" t-attf-class="modal-{{props.size}}">
+                <div class="modal-content setBgImage" t-attf-style="background-image:url('data:image/png;base64,#{props.image}')">
+                    <header class="modal-header border-bottom-0" style="padding: 10px 10px !important;">
+                        <h4 class="modal-title text-break"></h4>
+                        <div class="btn" t-on-click="_cancel" style="padding: 2px 5px;">
+                            <span><i class="fa fa-close" style="font-size:15px;color:#FFF"></i></span>
+                        </div>
+                    </header>
+                    <main class="modal-body">
+                        <div></div>
+                    </main>
+                </div>
+            </div>
+       </div>
+    </t>
+</templates>
