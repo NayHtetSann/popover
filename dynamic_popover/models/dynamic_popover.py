@@ -3,7 +3,7 @@ from odoo import models, fields
 
 class DynamicPopOver(models.Model):
     _name = 'dynamic.popup'
-    _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin']
+    _inherit = ['mail.thread.main.attachment', 'mail.activity.mixin']
     _order = 'sequence desc'
 
     name = fields.Char('Description')

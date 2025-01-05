@@ -3,7 +3,7 @@
 
 {
     'name': 'Dynamic Popover',
-    'version': '17.0.0.1',
+    'version': '18.0.0.1',
     'category': 'Website/Website',
     'author': 'NHS',
     'summary': 'Multi dynamic popovers',
